@@ -1,5 +1,6 @@
+import datetime as _dt
 from datetime import date, datetime
-from typing import Optional, List
+from typing import Optional, List, Union
 
 from pydantic import BaseModel, field_validator
 
@@ -23,10 +24,10 @@ class ExpenseCreate(BaseModel):
 
 
 class ExpenseUpdate(BaseModel):
-    date: Optional[date] = None
-    amount: Optional[int] = None
-    category_id: Optional[int] = None
-    memo: Optional[str] = None
+    date: Union[_dt.date, None] = None
+    amount: Union[int, None] = None
+    category_id: Union[int, None] = None
+    memo: Union[str, None] = None
 
 
 class ExpenseResponse(BaseModel):
